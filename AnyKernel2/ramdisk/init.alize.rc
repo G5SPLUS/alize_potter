@@ -28,6 +28,3 @@ on property:sys.boot_completed=1
     write /sys/module/wakeup/parameters/enable_ipa_ws 0
     write /sys/module/wakeup/parameters/enable_timerfd_ws 0
     write /sys/module/wakeup/parameters/enable_netlink_ws 0
-
-    # Enable Fingerprint boost
-    write /sys/kernel/fp_boost/enabled 1

@@ -27,7 +27,7 @@ export SUBARCH=arm
 
 # Clean build always lol
 echo "**** Cleaning ****"
-make clean && make mrproper
+#make clean && make mrproper
 
 echo "**** Kernel defconfig is set to $KERNEL_DEFCONFIG ****"
 echo -e "$blue***********************************************"
