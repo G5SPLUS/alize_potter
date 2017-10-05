@@ -9,7 +9,7 @@ KERNEL_DEFCONFIG=potter_defconfig
 DTBTOOL=$KERNEL_DIR/Dtbtool/
 JOBS=4
 ANY_KERNEL2_DIR=$KERNEL_DIR/AnyKernel2/
-FINAL_KERNEL_ZIP=Alize-8.0_v107.zip
+FINAL_KERNEL_ZIP=Alize-8.0_v108.zip
 # Speed up build process
 MAKE="./makeparallel"
 
