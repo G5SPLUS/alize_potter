@@ -1,30 +1,27 @@
-# Many of these tweaks are thanks to AK, Franco,Nathan Chancellor & frap129.
-
 on early-init
-    write /sys/block/dm-0/queue/scheduler noop
-    write /sys/block/sda/queue/scheduler noop
-    write /sys/block/sde/queue/scheduler noop
-
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/scheduler cfq
+    write /sys/block/sde/queue/scheduler cfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
     write /sys/block/sda/queue/read_ahead_kb 2048
-    write /sys/block/sde/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+
+on init
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/background/cpus 0-7
+    write /dev/cpuset/system-background/cpus 0-7
 
 on property:sys.boot_completed=1
-    # I/O
     write /sys/block/dm-0/queue/rq_affinity 0
     write /sys/block/sda/queue/rq_affinity 0
     write /sys/block/sde/queue/rq_affinity 0
-    write /sys/block/dm-0/queue/read_ahead_kb 128
-    write /sys/block/sda/queue/read_ahead_kb 128
-    write /sys/block/sde/queue/read_ahead_kb 128
+    write /sys/block/dm-0/queue/read_ahead_kb 512
+    write /sys/block/sda/queue/read_ahead_kb 512
+    write /sys/block/sde/queue/read_ahead_kb 512
     write /sys/block/dm-0/queue/scheduler bfq
     write /sys/block/sda/queue/scheduler bfq
     write /sys/block/sde/queue/scheduler bfq
-
-    # Disable some Wlan wakelocks
-    write /sys/module/wakeup/parameters/enable_qcom_rx_wakelock_ws 0
-    write /sys/module/wakeup/parameters/enable_wlan_extscan_wl_ws 0
-    write /sys/module/wakeup/parameters/enable_wlan_ws 0
-    write /sys/module/wakeup/parameters/enable_ipa_ws 0
-    write /sys/module/wakeup/parameters/enable_timerfd_ws 0
-    write /sys/module/wakeup/parameters/enable_netlink_ws 0
