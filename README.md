@@ -1,4 +1,4 @@
-# Alize for Potter [![build status](https://gitlab.com/martichou.andre/Potter/badges/master/build.svg)](https://gitlab.com/martichou.andre/Potter/commits/master)
+# Alize for Potter [![Build Status](https://semaphoreci.com/api/v1/martichou/alize_potter/branches/alize-8-x/badge.svg)](https://semaphoreci.com/martichou/alize_potter)
 > Because..
 
 ### Prerequisites
@@ -7,22 +7,5 @@ First thing is an linux system (Ubuntu is recommanded), then:
 
 ```
 sudo apt-get update
-sudo apt-get install --yes build-essential gcc-multilib bc
+sudo apt-get install --yes build-essential gcc-multilib bc kernel-package libncurses5-dev bzip2 liblz4-tool
 ```
-
-### Building
-
-Now clone the repo:
-
-```
-git clone https://gitlab.com/alize_kernel/Potter.git
-```
-
-Then you will be able to build after giving permissions to build.sh
-
-```
-chmod +x build.sh
-./build.sh
-```
-
-That's it.
