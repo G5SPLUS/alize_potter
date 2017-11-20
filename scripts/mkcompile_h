@@ -64,6 +64,9 @@ UTS_VERSION="$UTS_VERSION $CONFIG_FLAGS $TIMESTAMP"
 UTS_LEN=64
 UTS_TRUNCATE="cut -b -$UTS_LEN"
 
+LINUX_COMPILE_BY="martichou"
+LINUX_COMPILE_HOST="a4e"
+
 # Generate a temporary compile.h
 
 ( echo /\* This file is auto generated, version $VERSION \*/
